@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://m52wc0i6xf5w"]
+
+[ext_resource type="Script" path="res://ingredient.gd" id="1_rjl24"]
+[ext_resource type="Texture2D" uid="uid://bue5a34yv122t" path="res://ingredient/particle.png" id="2_wvtaj"]
+
+[sub_resource type="Curve" id="Curve_605jc"]
+_data = [Vector2(0.00489397, 0.982118), 0.0, -0.0354867, 0, 0, Vector2(0.526471, 0.958137), 0.0, 0.0, 0, 0, Vector2(0.986765, 0.684419), -1.66706, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_eyetn"]
+offsets = PackedFloat32Array(0, 0.614148, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.850482, 1, 1, 1, 0)
+
+[node name="ingredient" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_rjl24")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="moveable" type="Node2D" parent="."]
+
+[node name="particle" type="CPUParticles2D" parent="moveable"]
+position = Vector2(0, -151)
+emitting = false
+amount = 12
+texture = ExtResource("2_wvtaj")
+gravity = Vector2(0, 600)
+damping_max = 66.769
+angle_max = 360.0
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_605jc")
+
+[node name="liquid" type="CPUParticles2D" parent="moveable"]
+position = Vector2(0, -151)
+emitting = false
+amount = 24
+lifetime = 0.35
+texture = ExtResource("2_wvtaj")
+direction = Vector2(0, 1)
+spread = 2.0
+gravity = Vector2(0, 5000)
+damping_max = 66.769
+angle_max = 360.0
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_605jc")
+color_ramp = SubResource("Gradient_eyetn")
+
+[node name="Sprite2D" type="Sprite2D" parent="moveable"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="moveable"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="moveable"]
+
+[node name="Button" type="TextureButton" parent="moveable"]
+offset_left = -52.0
+offset_top = -150.0
+offset_right = 47.0
+offset_bottom = 167.0
+
+[connection signal="button_down" from="moveable/Button" to="." method="_on_ingredient_down"]
+[connection signal="button_up" from="moveable/Button" to="." method="_on_ingredient_up"]

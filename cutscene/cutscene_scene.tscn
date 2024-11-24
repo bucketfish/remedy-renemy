@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yeyir6vogbh3"]
+
+[ext_resource type="Texture2D" uid="uid://gn7q1sj7jrvt" path="res://cutscene/c1.png" id="1_otoyo"]
+[ext_resource type="Script" path="res://cutscene/scene.gd" id="2_iqh06"]
+
+[node name="scene" type="Sprite2D"]
+position = Vector2(0, -7)
+scale = Vector2(0.942142, 0.942142)
+texture = ExtResource("1_otoyo")
+centered = false
+script = ExtResource("2_iqh06")
+
+[node name="dialogue_location" type="Marker2D" parent="."]
+position = Vector2(470.205, 510.539)

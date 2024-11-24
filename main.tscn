@@ -1,0 +1,313 @@
+[gd_scene load_steps=21 format=3 uid="uid://c1gqkorxwhqbd"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_mvn8s"]
+[ext_resource type="PackedScene" uid="uid://yeyir6vogbh3" path="res://cutscene/cutscene_scene.tscn" id="2_rgul7"]
+[ext_resource type="Texture2D" uid="uid://uoy1d28ffrdr" path="res://cutscene/c4.png" id="3_11e0p"]
+[ext_resource type="Texture2D" uid="uid://oitj1cepuuhq" path="res://cutscene/c2.png" id="3_jrogb"]
+[ext_resource type="FontVariation" uid="uid://cshjdvg4y23je" path="res://book/book_font.tres" id="3_uxy1t"]
+[ext_resource type="Texture2D" uid="uid://bawfm6hi4s46u" path="res://back.png" id="4_c5s2m"]
+[ext_resource type="Texture2D" uid="uid://qu4t3a732xdx" path="res://cutscene/c6_1.png" id="4_f8t73"]
+[ext_resource type="Texture2D" uid="uid://dg8sqligd8xsi" path="res://cutscene/c3.png" id="4_l8f8a"]
+[ext_resource type="Texture2D" uid="uid://cg26ulj060i8v" path="res://cutscene/c6_2.png" id="5_2vk5u"]
+[ext_resource type="Texture2D" uid="uid://lwa76jisv3hf" path="res://cutscene/c5_2.png" id="5_47nns"]
+[ext_resource type="Texture2D" uid="uid://wpt00gnnvw6e" path="res://cutscene/c5.png" id="6_u5uxl"]
+[ext_resource type="Texture2D" uid="uid://3h0dl7seyp7p" path="res://cutscene/c6_3.png" id="6_v3633"]
+[ext_resource type="Texture2D" uid="uid://p8u8q78lmrb2" path="res://cutscene/c6_4.png" id="7_jjb16"]
+[ext_resource type="Texture2D" uid="uid://02p4aungmq5p" path="res://cutscene/c6_5.png" id="8_gfhlj"]
+[ext_resource type="Texture2D" uid="uid://khlvqleica5s" path="res://cutscene/c6_6.png" id="9_g3w50"]
+[ext_resource type="Shader" path="res://swirl.gdshader" id="11_r8vhg"]
+
+[sub_resource type="Gradient" id="Gradient_mbodc"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h4ykx"]
+gradient = SubResource("Gradient_mbodc")
+width = 1920
+height = 1080
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdc61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f8t73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2vk5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v3633")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jjb16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gfhlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g3w50")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2bd8"]
+shader = ExtResource("11_r8vhg")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 50.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.963925, 0.783871, 0.960178, 1)
+shader_parameter/colour_2 = Color(0.726603, 0.837513, 0.99577, 1)
+shader_parameter/colour_3 = Color(0.59808, 0.4628, 0.89, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_mvn8s")
+
+[node name="end" type="Node2D" parent="."]
+visible = false
+z_as_relative = false
+
+[node name="c8" parent="end" instance=ExtResource("2_rgul7")]
+visible = false
+
+[node name="dialogue_location" parent="end/c8" index="0"]
+position = Vector2(580, 859)
+
+[node name="title3" type="Label" parent="end/c8"]
+offset_left = 675.057
+offset_top = 635.785
+offset_right = 1304.06
+offset_bottom = 770.785
+theme_override_colors/font_color = Color(0.933333, 0.87451, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_uxy1t")
+theme_override_font_sizes/font_size = 32
+text = "for counterspell 2024
+by kai ling & tongyu"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="title2" type="Label" parent="end/c8"]
+offset_left = 563.609
+offset_top = 558.302
+offset_right = 1388.61
+offset_bottom = 693.302
+theme_override_colors/font_color = Color(0.933333, 0.87451, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_uxy1t")
+theme_override_font_sizes/font_size = 32
+text = "thank you for playing memory renemy!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="title4" type="Label" parent="end/c8"]
+offset_left = 333.283
+offset_top = 306.748
+offset_right = 1627.28
+offset_bottom = 568.748
+theme_override_colors/font_color = Color(0.754601, 0.853813, 0.788348, 1)
+theme_override_colors/font_shadow_color = Color(0.156863, 0.196078, 0.152941, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_uxy1t")
+theme_override_font_sizes/font_size = 140
+text = "the end!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="c7" parent="end" instance=ExtResource("2_rgul7")]
+visible = false
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
+texture = SubResource("GradientTexture2D_h4ykx")
+
+[node name="dialogue_location" parent="end/c7" index="0"]
+position = Vector2(580, 859)
+
+[node name="c6" parent="end" instance=ExtResource("2_rgul7")]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("4_c5s2m")
+
+[node name="dialogue_location" parent="end/c6" index="0"]
+position = Vector2(414, 728)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="end/c6"]
+clip_children = 2
+sprite_frames = SubResource("SpriteFrames_cdc61")
+centered = false
+
+[node name="rainbow" type="ColorRect" parent="end/c6/AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_k2bd8")
+anchors_preset = -1
+anchor_left = -0.304688
+anchor_top = -0.201852
+anchor_right = 0.540625
+anchor_bottom = 0.589815
+offset_left = 571.0
+offset_top = 187.0
+offset_right = 922.0
+offset_bottom = 468.0
+metadata/_edit_use_anchors_ = true
+
+[node name="c5" parent="end" instance=ExtResource("2_rgul7")]
+scale = Vector2(1, 1)
+texture = ExtResource("4_c5s2m")
+
+[node name="dialogue_location" parent="end/c5" index="0"]
+position = Vector2(970, 138)
+
+[node name="Sprite2D" type="Sprite2D" parent="end/c5"]
+clip_children = 2
+position = Vector2(0, 1)
+texture = ExtResource("5_47nns")
+centered = false
+
+[node name="rainbow" type="ColorRect" parent="end/c5/Sprite2D"]
+material = SubResource("ShaderMaterial_k2bd8")
+anchors_preset = -1
+anchor_top = 0.075
+anchor_right = 0.175521
+anchor_bottom = 0.367593
+offset_left = 667.0
+offset_top = 280.0
+offset_right = 1018.0
+offset_bottom = 561.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="end/c5"]
+texture = ExtResource("6_u5uxl")
+centered = false
+
+[node name="start" type="Node2D" parent="."]
+z_index = 10
+z_as_relative = false
+
+[node name="c4" parent="start" instance=ExtResource("2_rgul7")]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("3_11e0p")
+
+[node name="dialogue_location" parent="start/c4" index="0"]
+position = Vector2(567, 477)
+
+[node name="c3" parent="start" instance=ExtResource("2_rgul7")]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("4_l8f8a")
+
+[node name="dialogue_location" parent="start/c3" index="0"]
+position = Vector2(249, 496)
+
+[node name="c2" parent="start" instance=ExtResource("2_rgul7")]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("3_jrogb")
+
+[node name="dialogue_location" parent="start/c2" index="0"]
+position = Vector2(526, 95)
+
+[node name="c1" parent="start" instance=ExtResource("2_rgul7")]
+
+[node name="dialogue_location" parent="start/c1" index="0"]
+position = Vector2(288.704, 495.679)
+
+[node name="text" type="Label" parent="."]
+z_index = 200
+z_as_relative = false
+offset_left = 545.0
+offset_top = 532.0
+offset_right = 1343.0
+offset_bottom = 643.0
+theme_override_colors/font_color = Color(0.933333, 0.87451, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_uxy1t")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 3
+
+[node name="mainmenu" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 1919.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+
+[node name="title" type="Label" parent="mainmenu"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 305.0
+offset_right = 1626.0
+offset_bottom = 567.0
+theme_override_colors/font_color = Color(0.754601, 0.853813, 0.788348, 1)
+theme_override_colors/font_shadow_color = Color(0.156863, 0.196078, 0.152941, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_uxy1t")
+theme_override_font_sizes/font_size = 140
+text = "remedy renemy"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="title3" type="Label" parent="mainmenu"]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 576.0
+offset_right = 928.0
+offset_bottom = 711.0
+theme_override_colors/font_color = Color(0.933333, 0.87451, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_uxy1t")
+theme_override_font_sizes/font_size = 32
+text = "for counterspell 2024
+by kai ling & tongyu"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="title2" type="Label" parent="mainmenu"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 715.0
+offset_right = 924.0
+offset_bottom = 850.0
+theme_override_colors/font_color = Color(0.933333, 0.87451, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_uxy1t")
+theme_override_font_sizes/font_size = 32
+text = "press any key to begin"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[editable path="end/c8"]
+[editable path="end/c7"]
+[editable path="end/c6"]
+[editable path="end/c5"]
+[editable path="start/c4"]
+[editable path="start/c3"]
+[editable path="start/c2"]
+[editable path="start/c1"]

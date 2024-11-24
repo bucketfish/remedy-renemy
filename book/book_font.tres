@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cshjdvg4y23je"]
+
+[ext_resource type="FontFile" uid="uid://bf83d0fmo04v1" path="res://PlaywriteAUTAS-VariableFont_wght.ttf" id="1_kus0n"]
+
+[resource]
+base_font = ExtResource("1_kus0n")
+variation_embolden = 1.1
+spacing_top = -9

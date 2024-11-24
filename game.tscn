@@ -1,0 +1,999 @@
+[gd_scene load_steps=49 format=3 uid="uid://crs7kdjnq8emt"]
+
+[ext_resource type="PackedScene" uid="uid://m52wc0i6xf5w" path="res://ingredient.tscn" id="1_baqo8"]
+[ext_resource type="Script" path="res://game.gd" id="1_k2sxx"]
+[ext_resource type="Texture2D" uid="uid://bawfm6hi4s46u" path="res://back.png" id="2_5a36s"]
+[ext_resource type="Shader" path="res://swirl.gdshader" id="2_5edtl"]
+[ext_resource type="Texture2D" uid="uid://b6u557qcp8o1c" path="res://shelf.png" id="3_aqspq"]
+[ext_resource type="Texture2D" uid="uid://bue5a34yv122t" path="res://ingredient/particle.png" id="3_d5n8s"]
+[ext_resource type="Texture2D" uid="uid://c1w8rd8kklwia" path="res://cauldron.png" id="3_iyvf7"]
+[ext_resource type="Texture2D" uid="uid://bpqtgfabja7ts" path="res://cauldron_inside.png" id="4_5ju66"]
+[ext_resource type="Script" path="res://book.gd" id="4_an16j"]
+[ext_resource type="Texture2D" uid="uid://66537vl3dck" path="res://candle.png" id="4_iblpf"]
+[ext_resource type="Texture2D" uid="uid://dbi1a2gaatbcx" path="res://table.png" id="4_sr8ss"]
+[ext_resource type="Texture2D" uid="uid://dw1wkhiwoeipx" path="res://ingredient/i1.png" id="4_vlnm6"]
+[ext_resource type="Texture2D" uid="uid://bu1i2ex53ngyf" path="res://ingredient/i2.png" id="5_0bch2"]
+[ext_resource type="Texture2D" uid="uid://bjh0pam5ngw57" path="res://flask_half.png" id="6_lrp3y"]
+[ext_resource type="Texture2D" uid="uid://c11how4mxmwie" path="res://ingredient/i3.png" id="6_o03e0"]
+[ext_resource type="Texture2D" uid="uid://do1tre1hyevhj" path="res://flask.png" id="6_scsvm"]
+[ext_resource type="Texture2D" uid="uid://dcm0i3c5v8ug6" path="res://flask_full.png" id="7_1lt67"]
+[ext_resource type="Texture2D" uid="uid://o6625mlttgit" path="res://ingredient/i4.png" id="7_qx7hu"]
+[ext_resource type="Texture2D" uid="uid://btawrrigl2eqy" path="res://ingredient/i1_2.png" id="8_bjnw3"]
+[ext_resource type="Texture2D" uid="uid://cr7lkw13nxxpk" path="res://ingredient/i5.png" id="8_p48fn"]
+[ext_resource type="Texture2D" uid="uid://cosylrbimob8w" path="res://ingredient/i6.png" id="9_33wru"]
+[ext_resource type="Texture2D" uid="uid://b6cyhsww77idg" path="res://ingredient/i1_3.png" id="9_kcsw0"]
+[ext_resource type="Texture2D" uid="uid://bkuojapij6tga" path="res://ingredient/bubble1.png" id="11_mksa8"]
+[ext_resource type="PackedScene" uid="uid://dxy3n7eo1avjh" path="res://book/color_option.tscn" id="12_jgtlo"]
+[ext_resource type="Texture2D" uid="uid://d5i6ggf37hp7" path="res://ingredient/i3_2.png" id="12_p3jd2"]
+[ext_resource type="PackedScene" uid="uid://ddwn55w1xwk6q" path="res://book/ingredient_color_area.tscn" id="13_dsrfe"]
+[ext_resource type="Texture2D" uid="uid://dtlx5su4nc7f3" path="res://buttons/clear_cauldron.png" id="19_vd505"]
+[ext_resource type="Texture2D" uid="uid://cxruycbwt1mfm" path="res://buttons/clear_cauldron_hover.png" id="20_iqtjd"]
+[ext_resource type="Texture2D" uid="uid://cb1pjg621urep" path="res://buttons/clear_flask.png" id="21_6iw3a"]
+[ext_resource type="Texture2D" uid="uid://dostkhiwy7j25" path="res://book/background.png" id="22_0hlau"]
+[ext_resource type="Texture2D" uid="uid://biwmc8gi2pmg8" path="res://buttons/clear_flask_hover.png" id="22_vlgo2"]
+[ext_resource type="FontVariation" uid="uid://cshjdvg4y23je" path="res://book/book_font.tres" id="23_8u7j1"]
+[ext_resource type="Texture2D" uid="uid://bn0upew35ia1v" path="res://book/cauldron_color.png" id="24_4aqvv"]
+[ext_resource type="Texture2D" uid="uid://bw777jffqn05f" path="res://book/item_rectangle.png" id="25_uy18k"]
+[ext_resource type="Texture2D" uid="uid://dlvqsx3rfmidd" path="res://buttons/close.png" id="30_mrjlg"]
+[ext_resource type="Texture2D" uid="uid://c1oq8bxye7ygo" path="res://book/splatter1.png" id="30_xffex"]
+[ext_resource type="Texture2D" uid="uid://bs1nk06mgw6aw" path="res://book/splatter2.png" id="31_28rtj"]
+[ext_resource type="Texture2D" uid="uid://dcf6x1x0acf6l" path="res://buttons/close_hover.png" id="31_lvx1n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dui"]
+shader = ExtResource("2_5edtl")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 50.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.963925, 0.783871, 0.960178, 1)
+shader_parameter/colour_2 = Color(0.726603, 0.837513, 0.99577, 1)
+shader_parameter/colour_3 = Color(0.59808, 0.4628, 0.89, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="Curve" id="Curve_eke0i"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0.00326264, 31.912), 0.0, 0.0, 0, 0, Vector2(0.497553, 116.314), 0.0, 0.0, 0, 0, Vector2(0.996737, 28.3356), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_8pxm8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.497524), -1.39646, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_qxk0u"]
+offsets = PackedFloat32Array(0, 0.527928, 0.899099, 1)
+colors = PackedColorArray(1, 0.451212, 0.351331, 0.615686, 1, 0.645197, 0.199848, 0.607843, 1, 0.861147, 0.332545, 0.705882, 1, 0.833333, 0, 0.388235)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g48oc"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_wko67"]
+offsets = PackedFloat32Array(0, 0.585209, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.929904, 1, 1, 1, 0.6)
+
+[sub_resource type="Animation" id="Animation_wr34o"]
+resource_name = "show_book"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1363, 31), Vector2(231, 876)]
+}
+
+[sub_resource type="Animation" id="Animation_2aimb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1363, 31)]
+}
+
+[sub_resource type="Animation" id="Animation_skqpq"]
+resource_name = "hide_book"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(231, 876), Vector2(1363, 31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekttg"]
+_data = {
+"RESET": SubResource("Animation_2aimb"),
+"hide_book": SubResource("Animation_skqpq"),
+"show_book": SubResource("Animation_wr34o")
+}
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_k2sxx")
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("2_5a36s")
+centered = false
+
+[node name="Shelf" type="Sprite2D" parent="."]
+texture = ExtResource("3_aqspq")
+centered = false
+
+[node name="table" type="Sprite2D" parent="."]
+texture = ExtResource("4_sr8ss")
+centered = false
+
+[node name="Candle" type="Sprite2D" parent="."]
+texture = ExtResource("4_iblpf")
+centered = false
+
+[node name="cauldron" type="Node2D" parent="."]
+position = Vector2(357, 606)
+
+[node name="CauldronPos" type="Marker2D" parent="cauldron"]
+position = Vector2(374, -221)
+
+[node name="Sprite2D" type="Sprite2D" parent="cauldron"]
+position = Vector2(394, 96)
+texture = ExtResource("3_iyvf7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="cauldron"]
+visible = false
+clip_children = 2
+position = Vector2(386, 232)
+texture = ExtResource("4_5ju66")
+
+[node name="rainbow" type="ColorRect" parent="cauldron/Sprite2D2"]
+visible = false
+material = SubResource("ShaderMaterial_g1dui")
+anchors_preset = -1
+anchor_top = 0.075188
+anchor_right = 0.547194
+anchor_bottom = 0.370927
+offset_left = -381.0
+offset_top = -229.0
+offset_right = -30.0
+offset_bottom = 52.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="cauldron"]
+position = Vector2(381, 420)
+amount = 24
+lifetime = 0.5
+lifetime_randomness = 0.1
+texture = ExtResource("3_d5n8s")
+emission_shape = 3
+emission_rect_extents = Vector2(350, 1)
+direction = Vector2(0, -1)
+spread = 164.08
+gravity = Vector2(0, -980)
+initial_velocity_max = 113.85
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+radial_accel_curve = SubResource("Curve_eke0i")
+angle_max = 360.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_8pxm8")
+color_ramp = SubResource("Gradient_qxk0u")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="cauldron"]
+modulate = Color(1, 1, 1, 0.505882)
+material = SubResource("CanvasItemMaterial_g48oc")
+position = Vector2(381, 420)
+amount = 24
+lifetime = 0.5
+lifetime_randomness = 0.1
+texture = ExtResource("3_d5n8s")
+emission_shape = 3
+emission_rect_extents = Vector2(350, 1)
+direction = Vector2(0, -1)
+spread = 164.08
+gravity = Vector2(0, -980)
+initial_velocity_max = 113.85
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+radial_accel_curve = SubResource("Curve_eke0i")
+angle_max = 360.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8pxm8")
+color_ramp = SubResource("Gradient_qxk0u")
+
+[node name="bubble" type="CPUParticles2D" parent="cauldron"]
+position = Vector2(389, 118)
+emitting = false
+amount = 24
+lifetime = 0.8
+one_shot = true
+texture = ExtResource("11_mksa8")
+emission_shape = 3
+emission_rect_extents = Vector2(350, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.14
+initial_velocity_max = 80.0
+color_ramp = SubResource("Gradient_wko67")
+
+[node name="flask" type="Node2D" parent="."]
+position = Vector2(1296, 593)
+
+[node name="FlaskPos" type="Marker2D" parent="flask"]
+position = Vector2(195, -303)
+
+[node name="flask_half" type="Sprite2D" parent="flask"]
+visible = false
+position = Vector2(190, 108)
+texture = ExtResource("6_lrp3y")
+
+[node name="flask_full" type="Sprite2D" parent="flask"]
+visible = false
+position = Vector2(192, 72)
+texture = ExtResource("7_1lt67")
+
+[node name="Sprite2D" type="Sprite2D" parent="flask"]
+position = Vector2(289, -40)
+texture = ExtResource("6_scsvm")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="flask"]
+modulate = Color(1, 1, 1, 0.505882)
+material = SubResource("CanvasItemMaterial_g48oc")
+position = Vector2(194, 294)
+lifetime = 0.6
+lifetime_randomness = 0.1
+texture = ExtResource("3_d5n8s")
+direction = Vector2(0, -1)
+spread = 164.08
+gravity = Vector2(0, -980)
+initial_velocity_max = 113.85
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+radial_accel_curve = SubResource("Curve_eke0i")
+angle_max = 360.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8pxm8")
+color_ramp = SubResource("Gradient_qxk0u")
+
+[node name="bubble_1" type="CPUParticles2D" parent="flask"]
+position = Vector2(190, 73)
+emitting = false
+amount = 12
+lifetime = 0.8
+one_shot = true
+texture = ExtResource("11_mksa8")
+emission_shape = 3
+emission_rect_extents = Vector2(120, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.14
+initial_velocity_max = 80.0
+color_ramp = SubResource("Gradient_wko67")
+
+[node name="bubble_2" type="CPUParticles2D" parent="flask"]
+position = Vector2(190, -53)
+emitting = false
+lifetime = 0.8
+one_shot = true
+texture = ExtResource("11_mksa8")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.14
+initial_velocity_max = 80.0
+color_ramp = SubResource("Gradient_wko67")
+
+[node name="ggouti" parent="." instance=ExtResource("1_baqo8")]
+position = Vector2(142, 200)
+ingredient_name = "ggouti"
+sprites_count = 3
+particle_color = Color(0.796078, 0.529412, 0.568627, 1)
+
+[node name="Sprite2D" parent="ggouti/moveable" index="2"]
+texture = ExtResource("4_vlnm6")
+
+[node name="Sprite2D2" parent="ggouti/moveable" index="3"]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("8_bjnw3")
+
+[node name="Sprite2D3" parent="ggouti/moveable" index="4"]
+visible = false
+position = Vector2(3, -2)
+texture = ExtResource("9_kcsw0")
+
+[node name="Button" parent="ggouti/moveable" index="5"]
+offset_left = -57.0
+offset_top = -169.0
+offset_right = 62.0
+offset_bottom = 182.0
+
+[node name="yiklonna" parent="." instance=ExtResource("1_baqo8")]
+position = Vector2(355, 163)
+ingredient_name = "yiklonna"
+is_liquid = false
+particle_color = Color(0.784314, 0.494118, 0.247059, 1)
+
+[node name="particle" parent="yiklonna/moveable" index="0"]
+position = Vector2(0, 1)
+
+[node name="liquid" parent="yiklonna/moveable" index="1"]
+position = Vector2(0, 1)
+
+[node name="Sprite2D" parent="yiklonna/moveable" index="2"]
+texture = ExtResource("5_0bch2")
+
+[node name="Button" parent="yiklonna/moveable" index="5"]
+offset_left = -105.0
+offset_top = -48.0
+offset_right = 103.0
+offset_bottom = 76.0
+
+[node name="zxzv" parent="." instance=ExtResource("1_baqo8")]
+position = Vector2(516, 199)
+ingredient_name = "zxzv"
+sprites_count = 2
+is_liquid = false
+particle_color = Color(0.847059, 0.745098, 0.486275, 1)
+
+[node name="particle" parent="zxzv/moveable" index="0"]
+position = Vector2(10, -74)
+
+[node name="liquid" parent="zxzv/moveable" index="1"]
+position = Vector2(10, -74)
+
+[node name="Sprite2D" parent="zxzv/moveable" index="2"]
+position = Vector2(8, 32)
+texture = ExtResource("6_o03e0")
+
+[node name="Sprite2D2" parent="zxzv/moveable" index="3"]
+visible = false
+position = Vector2(6, 33)
+texture = ExtResource("12_p3jd2")
+
+[node name="Button" parent="zxzv/moveable" index="5"]
+offset_left = -48.0
+offset_top = -89.0
+offset_right = 69.0
+
+[node name="lekharrats" parent="." instance=ExtResource("1_baqo8")]
+position = Vector2(694, 148)
+ingredient_name = "lekharrats"
+is_liquid = false
+particle_color = Color(0.74902, 0.776471, 0.584314, 1)
+
+[node name="particle" parent="lekharrats/moveable" index="0"]
+position = Vector2(52, 68)
+
+[node name="liquid" parent="lekharrats/moveable" index="1"]
+position = Vector2(52, 68)
+
+[node name="Sprite2D" parent="lekharrats/moveable" index="2"]
+texture = ExtResource("7_qx7hu")
+
+[node name="Button" parent="lekharrats/moveable" index="5"]
+offset_left = -100.0
+offset_top = -62.0
+offset_right = 104.0
+offset_bottom = 80.0
+metadata/_edit_use_anchors_ = true
+
+[node name="kjkero" parent="." instance=ExtResource("1_baqo8")]
+position = Vector2(896, 139)
+ingredient_name = "kjkero"
+is_liquid = false
+particle_color = Color(0.3354, 0.58734, 0.78, 1)
+
+[node name="particle" parent="kjkero/moveable" index="0"]
+position = Vector2(0, 14)
+
+[node name="liquid" parent="kjkero/moveable" index="1"]
+position = Vector2(0, 14)
+
+[node name="Sprite2D" parent="kjkero/moveable" index="2"]
+texture = ExtResource("8_p48fn")
+
+[node name="Button" parent="kjkero/moveable" index="5"]
+offset_left = -87.0
+offset_top = -88.0
+offset_right = 67.0
+offset_bottom = 100.0
+
+[node name="pallra" parent="." instance=ExtResource("1_baqo8")]
+position = Vector2(1086, 140)
+ingredient_name = "pallra"
+particle_color = Color(0.596078, 0.541176, 0.788235, 1)
+
+[node name="particle" parent="pallra/moveable" index="0"]
+position = Vector2(-5, -56)
+
+[node name="liquid" parent="pallra/moveable" index="1"]
+position = Vector2(-5, -56)
+
+[node name="Sprite2D" parent="pallra/moveable" index="2"]
+texture = ExtResource("9_33wru")
+
+[node name="Button" parent="pallra/moveable" index="5"]
+offset_left = -82.0
+offset_top = -75.0
+offset_right = 81.0
+offset_bottom = 88.0
+
+[node name="clear_cauldron" type="TextureButton" parent="."]
+offset_left = 66.0
+offset_top = 689.0
+offset_right = 313.0
+offset_bottom = 931.0
+texture_normal = ExtResource("19_vd505")
+texture_hover = ExtResource("20_iqtjd")
+
+[node name="clear_flask" type="TextureButton" parent="."]
+offset_left = 1611.0
+offset_top = 304.0
+offset_right = 1846.0
+offset_bottom = 402.0
+texture_normal = ExtResource("21_6iw3a")
+texture_hover = ExtResource("22_vlgo2")
+
+[node name="book" type="Node2D" parent="."]
+position = Vector2(1363, 31)
+script = ExtResource("4_an16j")
+
+[node name="Background" type="Sprite2D" parent="book"]
+position = Vector2(732, -332)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("22_0hlau")
+
+[node name="close_button" type="TextureButton" parent="book"]
+offset_left = 1419.0
+offset_top = -828.0
+offset_right = 1520.0
+offset_bottom = -728.0
+texture_normal = ExtResource("30_mrjlg")
+texture_hover = ExtResource("31_lvx1n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="book"]
+libraries = {
+"": SubResource("AnimationLibrary_ekttg")
+}
+
+[node name="clues" type="Node2D" parent="book"]
+position = Vector2(98, -755)
+
+[node name="clues_label" type="RichTextLabel" parent="book/clues"]
+offset_right = 619.0
+offset_bottom = 884.0
+theme_override_colors/default_color = Color(0.497612, 0.376574, 0.280682, 1)
+theme_override_fonts/normal_font = ExtResource("23_8u7j1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "yiklonna + ggouti
+
+yiklonna + kjkero
+yiklonna + pallra
+
+yiklonna + zxzv
+
+lekharrats + ggouti
+lekharrats + yiklonna
+lekjarrats + kjkero
+
+kjkero + pallra
+
+lekharrats + pallra
+
+pallra + ggouti
+
+zxzv + any except yiklonna"
+
+[node name="red_eq" type="Label" parent="book/clues"]
+offset_left = 284.0
+offset_top = 3.0
+offset_right = 340.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="red_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(363, 8)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="orange_eq" type="Label" parent="book/clues"]
+offset_left = 275.0
+offset_top = 119.0
+offset_right = 331.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "} ="
+
+[node name="orange_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(1, 0.5, 0, 1)
+position = Vector2(372, 121)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="yellow_eq" type="Label" parent="book/clues"]
+offset_left = 263.0
+offset_top = 234.0
+offset_right = 319.0
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="yellow_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(0.92, 0.736, 0, 1)
+position = Vector2(341, 240)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="green_eq" type="Label" parent="book/clues"]
+offset_left = 356.0
+offset_top = 375.0
+offset_right = 412.0
+offset_bottom = 421.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="Node2D" type="Node2D" parent="book/clues"]
+position = Vector2(337, 360)
+scale = Vector2(1, 2)
+
+[node name="green_eq2" type="Label" parent="book/clues/Node2D"]
+offset_right = 56.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "}"
+
+[node name="green_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(0.322064, 0.679899, 0.343631, 1)
+position = Vector2(436, 377)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="blue_eq" type="Label" parent="book/clues"]
+offset_left = 239.0
+offset_top = 508.0
+offset_right = 295.0
+offset_bottom = 554.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="blue_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(0, 0.552, 0.92, 1)
+position = Vector2(317, 514)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="purple_eq" type="Label" parent="book/clues"]
+offset_left = 297.0
+offset_top = 601.0
+offset_right = 353.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="purple_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(0.54661, 0.1786, 0.94, 1)
+position = Vector2(375, 607)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="pink_eq" type="Label" parent="book/clues"]
+offset_left = 242.0
+offset_top = 694.0
+offset_right = 298.0
+offset_bottom = 740.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="pink_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(1, 0.532883, 0.736443, 1)
+position = Vector2(320, 700)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="black_eq" type="Label" parent="book/clues"]
+offset_left = 424.0
+offset_top = 787.0
+offset_right = 480.0
+offset_bottom = 833.0
+theme_override_colors/font_color = Color(0.498039, 0.376471, 0.282353, 1)
+theme_override_fonts/font = ExtResource("23_8u7j1")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="black_color" type="Sprite2D" parent="book/clues"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(501, 793)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("24_4aqvv")
+
+[node name="deductions" type="Node2D" parent="book"]
+position = Vector2(746, -755)
+
+[node name="i1" type="Sprite2D" parent="book/deductions"]
+position = Vector2(172, 77)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vlnm6")
+
+[node name="ItemRectangle" type="Sprite2D" parent="book/deductions/i1"]
+position = Vector2(0, 46)
+scale = Vector2(2, 2)
+texture = ExtResource("25_uy18k")
+
+[node name="i2" type="Sprite2D" parent="book/deductions"]
+position = Vector2(358, 100)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_0bch2")
+
+[node name="ItemRectangle" type="Sprite2D" parent="book/deductions/i2"]
+scale = Vector2(2, 2)
+texture = ExtResource("25_uy18k")
+
+[node name="i3" type="Sprite2D" parent="book/deductions"]
+position = Vector2(543, 82)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_o03e0")
+
+[node name="ItemRectangle" type="Sprite2D" parent="book/deductions/i3"]
+position = Vector2(0, 36)
+scale = Vector2(2, 2)
+texture = ExtResource("25_uy18k")
+
+[node name="i4" type="Sprite2D" parent="book/deductions"]
+position = Vector2(171, 334)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_qx7hu")
+
+[node name="ItemRectangle" type="Sprite2D" parent="book/deductions/i4"]
+position = Vector2(0, 36)
+scale = Vector2(2, 2)
+texture = ExtResource("25_uy18k")
+
+[node name="i5" type="Sprite2D" parent="book/deductions"]
+position = Vector2(359, 334)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_p48fn")
+
+[node name="ItemRectangle" type="Sprite2D" parent="book/deductions/i5"]
+position = Vector2(0, 36)
+scale = Vector2(2, 2)
+texture = ExtResource("25_uy18k")
+
+[node name="i6" type="Sprite2D" parent="book/deductions"]
+position = Vector2(548, 335)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_33wru")
+
+[node name="ItemRectangle" type="Sprite2D" parent="book/deductions/i6"]
+position = Vector2(0, 36)
+scale = Vector2(2, 2)
+texture = ExtResource("25_uy18k")
+
+[node name="Sprite2D" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(876, -541)
+rotation = -0.925507
+scale = Vector2(0.644304, 0.644304)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D14" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1036, -513)
+rotation = 3.69082
+scale = Vector2(0.401854, 0.401854)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D3" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1331, -509)
+rotation = 3.03679
+scale = Vector2(0.445693, 0.445693)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D10" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1261, -522)
+rotation = 2.46084
+scale = Vector2(0.425245, 0.425245)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D12" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(968, -276)
+rotation = 2.46084
+scale = Vector2(0.425245, 0.425245)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D15" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1395, -549)
+rotation = 2.46084
+scale = Vector2(0.425245, 0.425245)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D16" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1231, -520)
+rotation = 4.4228
+scale = Vector2(0.425245, 0.425245)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D17" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1174, -560)
+rotation = 7.24826
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D18" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(851, -543)
+rotation = 10.3028
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D19" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1107, -502)
+rotation = 10.3028
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D20" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1178, -539)
+rotation = 10.3028
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D21" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(968, -325)
+rotation = 14.4378
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D22" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(885, -300)
+rotation = 14.4378
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D23" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1317, -300)
+rotation = 14.4378
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D24" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1323, -350)
+rotation = 14.9556
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D25" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1314, -311)
+rotation = 15.5479
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D26" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1400, -276)
+rotation = 15.5479
+scale = Vector2(0.297403, 0.297403)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D13" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1068, -294)
+rotation = 2.46084
+scale = Vector2(0.425245, 0.425245)
+texture = ExtResource("30_xffex")
+
+[node name="Sprite2D2" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1069, -562)
+rotation = -0.472169
+scale = Vector2(0.532334, 0.532334)
+texture = ExtResource("31_28rtj")
+
+[node name="Sprite2D7" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(971, -294)
+rotation = -0.472169
+scale = Vector2(0.532334, 0.532334)
+texture = ExtResource("31_28rtj")
+
+[node name="Sprite2D11" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1166, -307)
+rotation = -0.472169
+scale = Vector2(0.532334, 0.532334)
+texture = ExtResource("31_28rtj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1137, -562)
+rotation = 0.47195
+scale = Vector2(0.356724, 0.356724)
+texture = ExtResource("31_28rtj")
+
+[node name="Sprite2D5" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(885, -326)
+rotation = 0.47195
+scale = Vector2(0.458778, 0.458778)
+texture = ExtResource("31_28rtj")
+
+[node name="Sprite2D6" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1103, -306)
+rotation = 2.82926
+scale = Vector2(0.827352, 0.395138)
+texture = ExtResource("31_28rtj")
+
+[node name="Sprite2D8" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1246, -318)
+rotation = 1.56215
+scale = Vector2(0.49312, 0.78528)
+texture = ExtResource("31_28rtj")
+
+[node name="Sprite2D9" type="Sprite2D" parent="book"]
+self_modulate = Color(0.201172, 0.152067, 0.11405, 1)
+position = Vector2(1324, -310)
+rotation = -0.472169
+scale = Vector2(0.532334, 0.532334)
+texture = ExtResource("31_28rtj")
+
+[node name="solution" type="RichTextLabel" parent="book"]
+offset_left = 749.0
+offset_top = -173.0
+offset_right = 1424.0
+offset_bottom = 144.0
+theme_override_colors/default_color = Color(0.497612, 0.376574, 0.280682, 1)
+theme_override_fonts/normal_font = ExtResource("23_8u7j1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "MEMOREMEDY POTION~
+add ggouti until red
+add pallra until pink
+add yiklonna until blue
+add kjkero until potion complete!"
+
+[node name="i1" parent="book" instance=ExtResource("13_dsrfe")]
+position = Vector2(846, -578)
+item_num = "1"
+
+[node name="i2" parent="book" instance=ExtResource("13_dsrfe")]
+position = Vector2(1034, -579)
+item_num = "2"
+
+[node name="i3" parent="book" instance=ExtResource("13_dsrfe")]
+position = Vector2(1221, -577)
+item_num = "3"
+
+[node name="i4" parent="book" instance=ExtResource("13_dsrfe")]
+position = Vector2(847, -327)
+item_num = "4"
+
+[node name="i5" parent="book" instance=ExtResource("13_dsrfe")]
+position = Vector2(1036, -327)
+item_num = "5"
+
+[node name="i6" parent="book" instance=ExtResource("13_dsrfe")]
+position = Vector2(1226, -325)
+item_num = "6"
+
+[node name="yiklonna" parent="book" instance=ExtResource("12_jgtlo")]
+offset_left = 654.0
+offset_top = -738.0
+offset_right = 797.0
+offset_bottom = -692.0
+color_name = "yiklonna"
+
+[node name="zxzv" parent="book" instance=ExtResource("12_jgtlo")]
+offset_left = 650.0
+offset_top = -677.0
+offset_right = 793.0
+offset_bottom = -631.0
+text = "zxzv"
+color_name = "zxzv"
+
+[node name="ggouti" parent="book" instance=ExtResource("12_jgtlo")]
+offset_left = 647.0
+offset_top = -603.0
+offset_right = 790.0
+offset_bottom = -557.0
+text = "ggouti"
+color_name = "ggouti"
+
+[node name="kjkero" parent="book" instance=ExtResource("12_jgtlo")]
+offset_left = 648.0
+offset_top = -519.0
+offset_right = 791.0
+offset_bottom = -473.0
+text = "kjkero"
+color_name = "kjkero"
+
+[node name="pallra" parent="book" instance=ExtResource("12_jgtlo")]
+offset_left = 648.0
+offset_top = -438.0
+offset_right = 791.0
+offset_bottom = -392.0
+text = "pallra"
+color_name = "pallra"
+
+[node name="lekharrats" parent="book" instance=ExtResource("12_jgtlo")]
+offset_left = 650.0
+offset_top = -360.0
+offset_right = 800.0
+offset_bottom = -314.0
+text = "lekharrats"
+color_name = "lekharrats"
+
+[node name="book_button" type="TextureButton" parent="."]
+offset_left = 1679.0
+offset_top = -3.0
+offset_right = 1922.0
+offset_bottom = 234.0
+
+[connection signal="pressed" from="clear_cauldron" to="." method="_on_clear_cauldron_pressed"]
+[connection signal="pressed" from="clear_flask" to="." method="_on_clear_flask_pressed"]
+[connection signal="pressed" from="book/close_button" to="book" method="_on_close_button_pressed"]
+[connection signal="pressed" from="book_button" to="book" method="_on_texture_button_pressed"]
+
+[editable path="ggouti"]
+[editable path="yiklonna"]
+[editable path="zxzv"]
+[editable path="lekharrats"]
+[editable path="kjkero"]
+[editable path="pallra"]

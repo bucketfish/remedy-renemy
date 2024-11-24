@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddwn55w1xwk6q"]
+
+[ext_resource type="Script" path="res://book/ingredient_color_area.gd" id="1_8g8g3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyrju"]
+size = Vector2(185, 121)
+
+[node name="ingredient_color_area" type="Area2D" groups=["ingredient_color_area"]]
+position = Vector2(1094, -686)
+script = ExtResource("1_8g8g3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(70, 26)
+shape = SubResource("RectangleShape2D_pyrju")

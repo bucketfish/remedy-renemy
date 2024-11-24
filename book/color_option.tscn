@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxy3n7eo1avjh"]
+
+[ext_resource type="FontVariation" uid="uid://cshjdvg4y23je" path="res://book/book_font.tres" id="1_2ael4"]
+[ext_resource type="Script" path="res://book/color_option.gd" id="1_cgr44"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75w1s"]
+size = Vector2(120, 10.5)
+
+[node name="color_option" type="Label"]
+modulate = Color(0.498039, 0.376471, 0.282353, 1)
+offset_left = -71.0
+offset_top = -24.0
+offset_right = 72.0
+offset_bottom = 22.0
+pivot_offset = Vector2(71, 24)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2ael4")
+theme_override_font_sizes/font_size = 28
+text = "yiklonna"
+horizontal_alignment = 1
+script = ExtResource("1_cgr44")
+
+[node name="Area2D" type="Area2D" parent="." groups=["color_option"]]
+position = Vector2(22, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(49, 15.75)
+shape = SubResource("RectangleShape2D_75w1s")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_top = 2.0
+offset_right = 144.0
+offset_bottom = 41.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="button_down" from="TextureButton" to="." method="_on_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_button_up"]
